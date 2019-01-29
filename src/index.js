@@ -1,6 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
+import configureStore from './store'
 import './index.css'
-import App from './App'
+import App from './presentation/App'
 
-render(<App />, document.getElementById('root'))
+const reduxStore = configureStore()
+
+render(<App reduxStore={reduxStore} />, document.getElementById('root'))
