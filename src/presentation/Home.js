@@ -5,12 +5,18 @@ import './Home.css'
 
 const Home = props => {
     return <section className="home">
-        <Thumbnail />
+        {props.movies.map(movie => (
+            <Thumbnail
+                image={movie.image}
+                name={movie.name}
+                year={movie.year}
+                heart={movie.favorited} />
+        ))}
     </section>
 }
 
 const mapStateToProps = state => ({
-
+    movies: state.movies
 })
 
 const mapDispatchToProps = dispatch => ({

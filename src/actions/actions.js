@@ -1,9 +1,15 @@
-export const LOAD_CURRENT_FAVORITES = 'LOAD_CURRENT_FAVORITES'
+export const LOAD_MOVIES = 'LOAD_MOVIES'
+export const LOAD_FAVORITES = 'LOAD_FAVORITES'
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES'
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES'
 
-export const loadCurrentFavorites = () => ({
-    type: LOAD_CURRENT_FAVORITES,
+export const loadMovies = () => ({
+    type: LOAD_MOVIES,
+    payload: 'loaded movies'
+})
+
+export const loadFavorites = () => ({
+    type: LOAD_FAVORITES,
     payload: 'loaded favorites'
 })
 

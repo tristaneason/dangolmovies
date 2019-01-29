@@ -1,31 +1,31 @@
 import {
-    LOAD_FAVORITES,
+    LOAD_MOVIES,
     ADD_TO_FAVORITES,
     REMOVE_FROM_FAVORITES
 } from '../actions/actions'
 
 const initialState = {
-    favorites: [],
+    movies: [],
 }
 
 export default (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
-        case LOAD_FAVORITES:
+        case LOAD_MOVIES:
             return {
                 ...state,
-                favorites: payload
+                movies: payload
             }
         case ADD_TO_FAVORITES:
             return {
                 ...state,
-                favorites: payload
+                movies: payload
             }
         case REMOVE_FROM_FAVORITES:
             return {
                 ...state,
-                favorites: payload
+                movies: payload
             }
         default:
             return state
