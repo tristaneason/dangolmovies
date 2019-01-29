@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.css'
+import Thumbnail from './components/Thumb.js'
 
-class App extends Component {
-    render() {
-        return (
-            <div className="app">
-                <h1>Dang ’ol Movies</h1>
-            </div>
-        )
-    }
+export default () => {
+    return <div className="app">
+        <h1>Dang ’ol Movies</h1>
+        <Thumbnail />
+    </div>
 }
-
-export default App
