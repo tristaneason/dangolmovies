@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import Thumbnail from '../components/Thumb'
 import './Favorites.css'
 
-const Favorites = props => {
+const Favorites = ({ favorites }) => {
     return <section className="favorites">
-        {props.favorites.map(favorite => (
+        {favorites.map(favorite => (
             <Thumbnail
                 image={favorite.image}
                 name={favorite.name}
-                year={favorite.year} />
+                year={favorite.year}
+                heart={favorite.favorited} />
         ))}
     </section>
 }

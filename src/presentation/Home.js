@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Thumbnail from '../components/Thumb'
 import './Home.css'
 
-const Home = props => {
+const Home = ({ movies }) => {
     return <section className="home">
-        {props.movies.map(movie => (
+        {movies.map(movie => (
             <Thumbnail
                 image={movie.image}
                 name={movie.name}
