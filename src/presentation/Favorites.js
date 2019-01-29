@@ -5,12 +5,17 @@ import './Favorites.css'
 
 const Favorites = props => {
     return <section className="favorites">
-        <Thumbnail image="" name="" year="" />
+        {props.favorites.map(favorite => (
+            <Thumbnail
+                image={favorite.image}
+                name={favorite.name}
+                year={favorite.year} />
+        ))}
     </section>
 }
 
 const mapStateToProps = state => ({
-
+    favorites: state.favorites
 })
 
 const mapDispatchToProps = dispatch => ({
