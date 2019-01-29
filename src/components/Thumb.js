@@ -1,7 +1,7 @@
 import React from 'react'
 import './Thumb.css'
 
-const App = props => (
+const Thumbnail = props => (
     <div className="thumb">
         <img src={props.image} alt={props.name} />
         <span className="thumb-name">{props.name}</span>
@@ -10,4 +10,4 @@ const App = props => (
     </div>
 )
 
-export default App
+export default Thumbnail
