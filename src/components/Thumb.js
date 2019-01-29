@@ -12,7 +12,7 @@ const App = props => (
 )
 
 const mapStateToProps = state => ({
-
+    favorited: state.movies
 })
 
 const mapDispatchToProps = dispatch => ({
