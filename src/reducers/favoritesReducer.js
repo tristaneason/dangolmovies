@@ -5,7 +5,8 @@ import {
 } from '../actions/favoritesActions'
 
 const initialState = {
-    movies: []
+    movies: [],
+    favorites: [],
 }
 
 export default (state = initialState, action) => {
@@ -15,6 +16,7 @@ export default (state = initialState, action) => {
         case LOAD_CURRENT_FAVORITES:
             return {
                 ...state,
+                favorites: payload
             }
         case ADD_TO_FAVORITES:
             return {

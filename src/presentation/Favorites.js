@@ -5,6 +5,7 @@ import './Favorites.css'
 
 const Favorites = props => {
     return <section className="favorites">
+        <Thumbnail />
     </section>
 }
 
