@@ -5,7 +5,6 @@ import {
 } from '../actions/favoritesActions'
 
 const initialState = {
-    movies: [],
     favorites: [],
 }
 
