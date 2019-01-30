@@ -6,6 +6,7 @@ import {
     addToFavorites,
     removeFromFavorites
 } from '../actions'
+import { favoritesSelector } from '../reducers'
 import './Home.css'
 
 class Home extends Component {
@@ -16,15 +17,20 @@ class Home extends Component {
     render() {
         return <section className="home">
             <h2>Top 20 Trending Movies</h2>
-            {this.props.movies.map(movie => {
-                return <Thumbnail key={movie.movie.ids.trakt} name={movie.movie.title} year={movie.movie.year} />
+            {this.props.movies.map(item => {
+                const { movie } = item
+                return <Thumbnail
+                    key={movie.ids.trakt}
+                    name={movie.title}
+                    year={movie.year} />
             })}
         </section>
     }
 }
 
 const mapStateToProps = state => ({
-    movies: state.movies
+    movies: state.movies,
+    favorites: favoritesSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({

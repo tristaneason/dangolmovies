@@ -5,6 +5,14 @@ const initialState = {
     error: false
 }
 
+export const favoritesSelector = state => {
+    return state.favorites.map(favorite => {
+        return state.movies.find(movie => {
+            return movie.ids.trakt === favorite
+        })
+    })
+}
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'FETCH_MOVIES_START':
@@ -26,11 +34,14 @@ export default (state = initialState, action) => {
                 }
             )
         case 'ADD_TO_FAVORITES':
-            return {
-                ...state,
-                favorites: action.payload
-            }
+            // TODO: Push ID onto favorites and then return favorites
+            return Object.assign({}, state,
+                {
+                    favorites: action.payload
+                }
+            )
         case 'REMOVE_FROM_FAVORITES':
+            // TODO: Find index of ID passed in from favorites, then splice from array with index as arg
             return {
                 ...state,
                 favorites: action.payload

@@ -6,6 +6,7 @@ import {
     addToFavorites,
     removeFromFavorites
 } from '../actions'
+import { favoritesSelector } from '../reducers'
 import './Favorites.css'
 
 class Favorites extends Component  {
@@ -22,7 +23,7 @@ class Favorites extends Component  {
 }
 
 const mapStateToProps = state => ({
-    favorites: state.favorites
+    favorites: favoritesSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({
