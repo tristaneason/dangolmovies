@@ -18,11 +18,9 @@ const Favorites = props => {
     </section>
 }
 
-const mapStateToProps = state => {
-    return {
-        favorites: state.favorites
-    }
-}
+const mapStateToProps = state => ({
+    favorites: state.favorites
+})
 
 const mapDispatchToProps = dispatch => ({
     fetchFavorites: () => dispatch(fetchFavorites()),

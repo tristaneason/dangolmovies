@@ -18,11 +18,9 @@ const Home = props => {
     </section>
 }
 
-const mapStateToProps = state => {
-    return {
-        movies: state.movies
-    }
-}
+const mapStateToProps = state => ({
+    movies: state.movies
+})
 
 const mapDispatchToProps = dispatch => ({
     fetchMovies: () => dispatch(fetchMovies()),
