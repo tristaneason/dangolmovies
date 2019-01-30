@@ -1,26 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Thumbnail from '../components/Thumb'
+import {
+    loadFavorites,
+    addToFavorites,
+    removeFromFavorites
+} from '../actions/actions'
 import './Favorites.css'
 
-const Favorites = ({ favorites }) => {
+const Favorites = props => {
+    const { favorites } = props
+
+    console.log(favorites)
+
     return <section className="favorites">
-        {favorites.map(favorite => (
-            <Thumbnail
-                image={favorite.image}
-                name={favorite.name}
-                year={favorite.year}
-                heart={favorite.favorited} />
-        ))}
+        <h2>Favorites</h2>
     </section>
 }
 
-const mapStateToProps = state => ({
-    favorites: state.favorites
-})
+const mapStateToProps = state => {
+    return {
+        favorites: state
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
-
+    loadFavorites: () => dispatch(loadFavorites()),
+    addToFavorites: () => dispatch(addToFavorites()),
+    removeFromFavorites: () => dispatch(removeFromFavorites())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites)

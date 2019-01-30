@@ -7,7 +7,12 @@ const logger = store => next => action => {
     return next(action)
 }
 
-export default function configureStore(state = {}) {
+const initialState = {
+    movies: [],
+    favorites: []
+}
+
+export default function configureStore(state = initialState) {
     const middleware = []
 
     middleware.push(ReduxThunk)

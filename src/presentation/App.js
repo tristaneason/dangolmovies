@@ -15,11 +15,11 @@ export default ({ reduxStore }) => (
             <main className="app">
                 <h1>Dang ’ol Movies</h1>
 
-                <Link to="">Home</Link>
-                <Link to="">Favorites</Link>
+                <Link to="/">Home</Link>
+                <Link to="/favorites">Favorites</Link>
 
                 <Route path="/" exact component={Home} />
-                <Route path="/favorites/" component={Favorites} />
+                <Route path="/favorites" component={Favorites} />
             </main>
         </Router>
     </Provider>
