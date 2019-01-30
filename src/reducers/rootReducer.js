@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import homeReducer from './homeReducer'
-import favoritesReducer from './favoritesReducer'
+import reducers from './reducers'
 
 export default combineReducers({
-    homeReducer,
-    favoritesReducer
+    reducers
 })

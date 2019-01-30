@@ -2,38 +2,30 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Thumbnail from '../components/Thumb'
 import {
-    loadMovies,
+    fetchMovies,
     addToFavorites,
     removeFromFavorites
 } from '../actions/actions'
 import './Home.css'
 
 const Home = props => {
-    const {
-        movies,
-        loadMovies,
-        addToFavorites,
-        removeFromFavorites
-    } = props
+    console.log('Movies: ' + props.movies)
 
-    console.log(movies)
-
-    return (
-        <section className="home">
-            <h2>Top 20 Trending Movies</h2>
-            <span onClick={loadMovies}>Click</span>
-        </section>
-    )
+    return <section className="home">
+        <h2>Top 20 Trending Movies</h2>
+        <button onClick={fetchMovies}>Click</button>
+        <Thumbnail />
+    </section>
 }
 
 const mapStateToProps = state => {
     return {
-        movies: state
+        movies: state.movies
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    loadMovies: () => dispatch(loadMovies()),
+    fetchMovies: () => dispatch(fetchMovies()),
     addToFavorites: () => dispatch(addToFavorites()),
     removeFromFavorites: () => dispatch(removeFromFavorites())
 })

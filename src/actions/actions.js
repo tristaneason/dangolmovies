@@ -1,12 +1,15 @@
 import request from 'request-promise'
 
-export const REQUEST_MOVIES = 'REQUEST_MOVIES'
-export const LOAD_MOVIES = 'LOAD_MOVIES'
-export const LOAD_FAVORITES = 'LOAD_FAVORITES'
+export const FETCH_MOVIES_START = 'FETCH_MOVIES_START'
+export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS'
+export const FETCH_MOVIES_ERROR = 'FETCH_MOVIES_ERROR'
+export const FETCH_FAVORITES_START = 'FETCH_FAVORITES_START'
+export const FETCH_FAVORITES_SUCCESS = 'FETCH_FAVORITES_SUCCESS'
+export const FETCH_FAVORITES_ERROR = 'FETCH_FAVORITES_ERROR'
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES'
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES'
 
-function fetchMovies(uri) {
+function getRequest(uri) {
     request({
         method: 'GET',
         url: uri,
@@ -28,14 +31,13 @@ function fetchMovies(uri) {
         })
 }
 
-export const loadMovies = () => ({
-    type: LOAD_MOVIES,
-    payload: fetchMovies('https://api.trakt.tv/movies/trending?limit=20')
+export const fetchMovies = () => ({
+    type: FETCH_MOVIES_START,
+    payload: getRequest('https://api.trakt.tv/movies/trending?limit=20')
 })
 
-export const loadFavorites = favorites => ({
-    type: LOAD_FAVORITES,
-    payload: favorites
+export const fetchFavorites = () => ({
+    type: FETCH_FAVORITES_START
 })
 
 export const addToFavorites = movie => ({

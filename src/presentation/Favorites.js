@@ -2,30 +2,30 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Thumbnail from '../components/Thumb'
 import {
-    loadFavorites,
+    fetchFavorites,
     addToFavorites,
     removeFromFavorites
 } from '../actions/actions'
 import './Favorites.css'
 
 const Favorites = props => {
-    const { favorites } = props
-
-    console.log(favorites)
+    console.log('Favorites: ' + props.favorites)
 
     return <section className="favorites">
         <h2>Favorites</h2>
+        <button onClick={fetchFavorites}>Click</button>
+        <Thumbnail />
     </section>
 }
 
 const mapStateToProps = state => {
     return {
-        favorites: state
+        favorites: state.favorites
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    loadFavorites: () => dispatch(loadFavorites()),
+    fetchFavorites: () => dispatch(fetchFavorites()),
     addToFavorites: () => dispatch(addToFavorites()),
     removeFromFavorites: () => dispatch(removeFromFavorites())
 })
