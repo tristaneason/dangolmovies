@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Thumbnail from '../components/Thumb'
-import { addToFavorites, removeFromFavorites } from '../actions'
-import { favoritesSelector } from '../reducers'
-import './Favorites.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Thumbnail from '../components/Thumb';
+import { addToFavorites, removeFromFavorites } from '../actions';
+import { favoritesSelector } from '../reducers';
+import './Favorites.css';
 
 class Favorites extends Component  {
     componentDidMount() {
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
     removeFromFavorites: () => removeFromFavorites()
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites)
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

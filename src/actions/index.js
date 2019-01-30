@@ -1,10 +1,10 @@
-import request from 'request-promise'
+import request from 'request-promise';
 
-export const FETCH_MOVIES_START = 'FETCH_MOVIES_START'
-export const FETCH_MOVIES_REJECTED = 'FETCH_MOVIES_REJECTED'
-export const FETCH_MOVIES_FULFILLED = 'FETCH_MOVIES_FULFILLED'
-export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES'
-export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES'
+export const FETCH_MOVIES_START = 'FETCH_MOVIES_START';
+export const FETCH_MOVIES_REJECTED = 'FETCH_MOVIES_REJECTED';
+export const FETCH_MOVIES_FULFILLED = 'FETCH_MOVIES_FULFILLED';
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
+export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
 const requestOptions = {
     method: 'GET',
@@ -20,8 +20,7 @@ export const fetchMovies = () => {
     return dispatch => {
         request(requestOptions, (error, response, body) => {
             if (response.statusCode === 200) {
-                const data = JSON.parse(body)
-                console.log(data)
+                const data = JSON.parse(body);
                 dispatch({
                     type: FETCH_MOVIES_FULFILLED,
                     payload: data

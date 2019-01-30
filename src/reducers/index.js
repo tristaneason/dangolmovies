@@ -4,7 +4,7 @@ import {
     FETCH_MOVIES_FULFILLED,
     ADD_TO_FAVORITES,
     REMOVE_FROM_FAVORITES
-} from '../actions'
+} from '../actions';
 
 const initialState = {
     loading: false,
@@ -16,7 +16,7 @@ const initialState = {
 export const favoritesSelector = state => {
     return state.favorites.map(favorite => {
         return state.movies.find(movie => {
-            return movie.ids.trakt === favorite
+            return movie.ids.trakt === favorite;
         })
     })
 }
@@ -58,6 +58,6 @@ export default (state = initialState, action) => {
                 }
             )
         default:
-            return state
+            return state;
     }
 }

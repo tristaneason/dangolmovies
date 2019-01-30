@@ -1,12 +1,12 @@
-import React from 'react'
-import './Thumb.css'
+import React from 'react';
+import './Thumb.css';
 
 const Thumbnail = props => {
-    let heart
+    let heart;
     if (props.favorited) {
-        heart = 'fas fa-heart'
+        heart = 'fas fa-heart';
     } else {
-        heart = 'far fa-heart'
+        heart = 'far fa-heart';
     }
 
     return <div className="thumb">
@@ -17,4 +17,4 @@ const Thumbnail = props => {
     </div>
 }
 
-export default Thumbnail
+export default Thumbnail;

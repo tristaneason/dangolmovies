@@ -1,13 +1,9 @@
-import React from 'react'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
-import { Provider } from 'react-redux'
-import Home from './Home'
-import Favorites from './Favorites'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Home from './Home';
+import Favorites from './Favorites';
+import './App.css';
 
 export default ({ reduxStore }) => (
     <Provider store={reduxStore}>
