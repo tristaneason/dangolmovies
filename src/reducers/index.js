@@ -16,16 +16,18 @@ export const favoritesSelector = state => {
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'FETCH_MOVIES_START':
-            return {
-                ...state,
-                loading: true
-            }
+            return Object.assign({}, state,
+                {
+                    loading: true
+                }
+            )
         case 'FETCH_MOVIES_REJECTED':
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            }
+            return Object.assign({}, state,
+                {
+                    loading: false,
+                    error: action.payload
+                }
+            )
         case 'FETCH_MOVIES_FULFILLED':
             return Object.assign({}, state,
                 {
@@ -42,10 +44,11 @@ export default (state = initialState, action) => {
             )
         case 'REMOVE_FROM_FAVORITES':
             // TODO: Find index of ID passed in from favorites, then splice from array with index as arg
-            return {
-                ...state,
-                favorites: action.payload
-            }
+            return Object.assign({}, state,
+                {
+                    favorites: action.payload
+                }
+            )
         default:
             return state
     }
