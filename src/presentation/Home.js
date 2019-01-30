@@ -1,25 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Thumbnail from '../components/Thumb'
 import {
     fetchMovies,
     addToFavorites,
     removeFromFavorites
-} from '../actions/actions'
+} from '../actions'
 import './Home.css'
 
-const Home = props => {
-    console.log('Movies: ' + props.movies)
+class Home extends Component {
+    componentDidMount() {
+        this.props.fetchMovies()
+    }
 
-    return <section className="home">
-        <h2>Top 20 Trending Movies</h2>
-        <button onClick={fetchMovies}>Click</button>
-        <Thumbnail />
-    </section>
+    render() {
+        return <section className="home">
+            <h2>Top 20 Trending Movies</h2>
+            {this.props.movies.map(movie => {
+                return <Thumbnail key={movie.movie.ids.trakt} name={movie.movie.title} year={movie.movie.year} />
+            })}
+        </section>
+    }
 }
 
-const mapStateToProps = store => ({
-    movies: store.movies
+const mapStateToProps = state => ({
+    movies: state.movies
 })
 
 const mapDispatchToProps = dispatch => ({

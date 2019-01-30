@@ -1,15 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import promise from 'redux-promise-middleware'
-import rootReducer from '../reducers/rootReducer'
+import reducer from '../reducers'
 
 export default function configureStore(state = {}) {
-    const middleware = [thunk, logger, promise]
+    const middleware = [thunk, logger]
     if (process.env.NODE_ENV === 'development') middleware.push(logger)
 
     return createStore(
-        rootReducer,
+        reducer,
         compose(
             applyMiddleware(...middleware)
         )

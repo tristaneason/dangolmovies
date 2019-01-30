@@ -1,6 +1,5 @@
 const initialState = {
     loading: false,
-    loaded: false,
     movies: [],
     favorites: [],
     error: false
@@ -20,30 +19,12 @@ export default (state = initialState, action) => {
                 error: action.payload
             }
         case 'FETCH_MOVIES_FULFILLED':
-            return {
-                ...state,
-                loading: false,
-                loaded: true,
-                movies: action.payload
-            }
-        case 'FETCH_FAVORITES_START':
-            return {
-                ...state,
-                loading: true
-            }
-        case 'FETCH_FAVORITES_REJECTED':
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            }
-        case 'FETCH_FAVORITES_FULFILLED':
-            return {
-                ...state,
-                loading: false,
-                loaded: true,
-                favorites: action.payload
-            }
+            return Object.assign({}, state,
+                {
+                    loading: false,
+                    movies: action.payload
+                }
+            )
         case 'ADD_TO_FAVORITES':
             return {
                 ...state,
