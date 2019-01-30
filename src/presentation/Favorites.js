@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Thumbnail from '../components/Thumb'
-import {
-    fetchFavorites,
-    addToFavorites,
-    removeFromFavorites
-} from '../actions'
+import { addToFavorites, removeFromFavorites } from '../actions'
 import { favoritesSelector } from '../reducers'
 import './Favorites.css'
 
 class Favorites extends Component  {
     componentDidMount() {
-        this.props.fetchFavorites()
+
     }
 
     render() {
@@ -27,7 +23,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    fetchFavorites: () => fetchFavorites(),
     addToFavorites: () => addToFavorites(),
     removeFromFavorites: () => removeFromFavorites()
 })
