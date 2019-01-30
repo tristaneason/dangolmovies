@@ -14,14 +14,14 @@ class Favorites extends Component  {
         let heart;
         if (this.props.favorited) heart = 'fas fa-heart';
         else heart = 'far fa-heart';
-        
+
         return <section className="favorites container">
             <h2 className="text-center">Favorites</h2>
             <div className="row">
                 {this.props.favorites.map(item => {
                     const { favorite } = item;
                     return <div key={favorite.ids.trakt} className="thumb col-sm-6 col-md-4 col-lg-3">
-                        <span className="thumb-name">{favorite.name}</span>
+                        <span className="thumb-name">{favorite.title}</span>
                         <span className="thumb-year">{favorite.year}</span>
                         <i className={heart}></i>
                     </div>

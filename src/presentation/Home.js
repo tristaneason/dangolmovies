@@ -10,6 +10,10 @@ class Home extends Component {
         this.props.fetchMovies();
     }
 
+    toggleFavorite() {
+
+    }
+
     render() {
         let heart;
         if (this.props.favorited) heart = 'fas fa-heart';
@@ -21,9 +25,9 @@ class Home extends Component {
                 {this.props.movies.map(item => {
                     const { movie } = item;
                     return <div key={movie.ids.trakt} className="thumb col-sm-6 col-md-4 col-lg-3">
-                        <span className="thumb-name">{movie.name}</span>
+                        <span className="thumb-name">{movie.title}</span>
                         <span className="thumb-year">{movie.year}</span>
-                        <i className={heart}></i>
+                        <i className={heart} onClick={() => this.props.addToFavorites(movie.ids.trakt)}></i>
                     </div>
                 })}
             </div>
@@ -33,13 +37,16 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
     movies: state.movies,
-    favorites: favoritesSelector(state)
+    // favorites: favoritesSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({
     fetchMovies: () => dispatch(fetchMovies()),
-    addToFavorites: () => dispatch(addToFavorites()),
-    removeFromFavorites: () => dispatch(removeFromFavorites())
+    addToFavorites: (id) => {
+        console.log('id: ' + id);
+        dispatch(addToFavorites(id))
+    },
+    removeFromFavorites: (id) => dispatch(removeFromFavorites(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

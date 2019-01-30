@@ -44,10 +44,11 @@ export default (state = initialState, action) => {
                 }
             )
         case ADD_TO_FAVORITES:
-            // TODO: Push ID onto favorites and then return favorites
+            const favs = state.favorites;
+            favs.push(action.payload);
             return Object.assign({}, state,
                 {
-                    favorites: action.payload
+                    favorites: favs
                 }
             )
         case REMOVE_FROM_FAVORITES:

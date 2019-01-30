@@ -35,12 +35,12 @@ export const fetchMovies = () => {
     }
 }
 
-export const addToFavorites = ({ id }) => ({
+export const addToFavorites = id => ({
     type: ADD_TO_FAVORITES,
     payload: id
 })
 
-export const removeFromFavorites = ({ id }) => ({
+export const removeFromFavorites = id => ({
     type: REMOVE_FROM_FAVORITES,
     payload: id
 })
