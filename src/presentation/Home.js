@@ -11,15 +11,17 @@ class Home extends Component {
     }
 
     render() {
-        return <section className="home">
-            <h2>Top 20 Trending Movies</h2>
-            {this.props.movies.map(item => {
-                const { movie } = item;
-                return <Thumbnail
-                    key={movie.ids.trakt}
-                    name={movie.title}
-                    year={movie.year} />
-            })}
+        return <section className="home container">
+            <h2 className="text-center">Top 20 Trending Movies</h2>
+            <div className="row">
+                {this.props.movies.map(item => {
+                    const { movie } = item;
+                    return <Thumbnail
+                        key={movie.ids.trakt}
+                        name={movie.title}
+                        year={movie.year} />
+                })}
+            </div>
         </section>
     }
 }

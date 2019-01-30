@@ -8,12 +8,16 @@ import './App.css';
 export default ({ reduxStore }) => (
     <Provider store={reduxStore}>
         <Router>
-            <main className="app">
-                <h1>Dang ’ol Movies</h1>
-
-                <Link to="/">Home</Link>
-                <Link to="/favorites">Favorites</Link>
-
+            <main className="app container">
+                <h1 className="text-center">Dang ’ol Movies</h1>
+                <ul className="nav nav-tabs justify-content-center">
+                    <li>
+                        <Link className="nav-link" to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link className="nav-link" to="/favorites">Favorites</Link>
+                    </li>
+                </ul>
                 <Route path="/" exact component={Home} />
                 <Route path="/favorites" component={Favorites} />
             </main>

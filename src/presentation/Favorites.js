@@ -11,9 +11,11 @@ class Favorites extends Component  {
     }
 
     render() {
-        return <section className="favorites">
+        return <section className="favorites container">
             <h2>Favorites</h2>
-            <Thumbnail />
+            <div className="row">
+                <Thumbnail />
+            </div>
         </section>
     }
 }
