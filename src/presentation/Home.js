@@ -18,8 +18,8 @@ const Home = props => {
     </section>
 }
 
-const mapStateToProps = state => ({
-    movies: state.movies
+const mapStateToProps = store => ({
+    movies: store.movies
 })
 
 const mapDispatchToProps = dispatch => ({
