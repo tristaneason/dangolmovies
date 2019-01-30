@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMovies, addToFavorites, removeFromFavorites } from '../actions';
+import { fetchMovies, toggleFavorites } from '../actions';
 import { favoritesSelector } from '../reducers';
 import './Favorites.css';
 import './Thumb.css';
 
 class Favorites extends Component  {
-    componentDidMount() {
-        // this.props.favorites;
-    }
-
     render() {
         let heart;
         if (this.props.favorited) heart = 'fas fa-heart';
@@ -37,8 +33,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchMovies: () => dispatch(fetchMovies()),
-    addToFavorites: () => addToFavorites(),
-    removeFromFavorites: () => removeFromFavorites()
+    toggleFavorites: () => toggleFavorites()
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

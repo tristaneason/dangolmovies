@@ -2,8 +2,7 @@ import {
     FETCH_MOVIES_START,
     FETCH_MOVIES_REJECTED,
     FETCH_MOVIES_FULFILLED,
-    ADD_TO_FAVORITES,
-    REMOVE_FROM_FAVORITES
+    TOGGLE_FAVORITES
 } from '../actions';
 
 const initialState = {
@@ -43,19 +42,10 @@ export default (state = initialState, action) => {
                     movies: action.payload
                 }
             )
-        case ADD_TO_FAVORITES:
-            const favs = state.favorites;
-            favs.push(action.payload);
+        case TOGGLE_FAVORITES:
             return Object.assign({}, state,
                 {
-                    favorites: favs
-                }
-            )
-        case REMOVE_FROM_FAVORITES:
-            // TODO: Find index of ID passed in from favorites, then splice from array with index as arg
-            return Object.assign({}, state,
-                {
-                    favorites: action.payload
+                    favorites: state.favorites.concat(action.payload)
                 }
             )
         default:

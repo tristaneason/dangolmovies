@@ -3,8 +3,7 @@ import request from 'request-promise';
 export const FETCH_MOVIES_START = 'FETCH_MOVIES_START';
 export const FETCH_MOVIES_REJECTED = 'FETCH_MOVIES_REJECTED';
 export const FETCH_MOVIES_FULFILLED = 'FETCH_MOVIES_FULFILLED';
-export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
-export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
+export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES';
 
 const requestOptions = {
     method: 'GET',
@@ -35,12 +34,7 @@ export const fetchMovies = () => {
     }
 }
 
-export const addToFavorites = id => ({
-    type: ADD_TO_FAVORITES,
-    payload: id
-})
-
-export const removeFromFavorites = id => ({
-    type: REMOVE_FROM_FAVORITES,
+export const toggleFavorites = id => ({
+    type: TOGGLE_FAVORITES,
     payload: id
 })

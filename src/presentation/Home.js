@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMovies, addToFavorites, removeFromFavorites } from '../actions';
+import { fetchMovies, toggleFavorites } from '../actions';
 import { favoritesSelector } from '../reducers';
 import './Home.css';
 import './Thumb.css';
@@ -8,10 +8,6 @@ import './Thumb.css';
 class Home extends Component {
     componentDidMount() {
         this.props.fetchMovies();
-    }
-
-    toggleFavorite() {
-
     }
 
     render() {
@@ -27,7 +23,7 @@ class Home extends Component {
                     return <div key={movie.ids.trakt} className="thumb col-sm-6 col-md-4 col-lg-3">
                         <span className="thumb-name">{movie.title}</span>
                         <span className="thumb-year">{movie.year}</span>
-                        <i className={heart} onClick={() => this.props.addToFavorites(movie.ids.trakt)}></i>
+                        <i className={heart} onClick={() => this.props.toggleFavorites(movie.ids.trakt)}></i>
                     </div>
                 })}
             </div>
@@ -42,11 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchMovies: () => dispatch(fetchMovies()),
-    addToFavorites: (id) => {
-        console.log('id: ' + id);
-        dispatch(addToFavorites(id))
-    },
-    removeFromFavorites: (id) => dispatch(removeFromFavorites(id))
+    toggleFavorites: (id) => dispatch(toggleFavorites(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
