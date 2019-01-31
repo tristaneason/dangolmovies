@@ -40,8 +40,10 @@ export default (state = initialState, action) => {
 
             if (favoriteExists) {
                 favorites = favorites.filter(id => id !== action.payload);
+                // Trigger remove favorite message
             } else {
                 favorites.push(action.payload);
+                // Trigger added favorite message
             }
 
             return Object.assign({}, state,
