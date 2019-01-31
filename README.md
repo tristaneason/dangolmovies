@@ -1,3 +1,15 @@
+# Dang 'ol Movies App
+
+## Getting Started
+
+`git clone https://github.com/tristaneason/dangolmovies.git`
+
+`yarn install`
+
+`yarn start`
+
+---------------------------------------------------
+
 Build a trending movie app using React.js, Router, and Redux for state management. Ideally this works on the latest Chrome, FF, Safari, and Edge browsers (IE11 is a bonus).
 
 ## On the "Home" tab
