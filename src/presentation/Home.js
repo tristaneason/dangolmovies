@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovies, toggleFavorites } from '../actions';
-import { favoritesSelector } from '../reducers';
+import Poster from '../components/Poster';
 import './Home.css';
 import './Thumb.css';
 
@@ -11,19 +11,16 @@ class Home extends Component {
     }
 
     render() {
-        let heart;
-        if (this.props.favorited) heart = 'fas fa-heart';
-        else heart = 'far fa-heart';
-
         return <section className="home container">
             <h2 className="text-center">Top 20 Trending Movies</h2>
             <div className="row">
                 {this.props.movies.map(item => {
                     const { movie } = item;
                     return <div key={movie.ids.trakt} className="thumb col-sm-6 col-md-4 col-lg-3">
-                        <span className="thumb-name">{movie.title}</span>
-                        <span className="thumb-year">{movie.year}</span>
-                        <i className={heart} onClick={() => this.props.toggleFavorites(movie.ids.trakt)}></i>
+                        <span className="name">{movie.title}</span>
+                        <span className="year">{movie.year}</span>
+                        <Poster id={movie.ids.tmdb} alt={movie.title} className="image" />
+                        <i className="far fa-heart" onClick={() => this.props.toggleFavorites(movie.ids.trakt)}></i>
                     </div>
                 })}
             </div>
@@ -33,7 +30,8 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
     movies: state.movies,
-    // favorites: favoritesSelector(state)
+    favorites: state.favorites,
+    heart: state.favorites.heart
 })
 
 const mapDispatchToProps = dispatch => ({

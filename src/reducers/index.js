@@ -8,6 +8,7 @@ import {
 const initialState = {
     loading: false,
     movies: [],
+    posters: [],
     favorites: [],
     error: false
 }
@@ -43,6 +44,19 @@ export default (state = initialState, action) => {
                 }
             )
         case TOGGLE_FAVORITES:
+            state.favorites.map(favoriteId => {
+                if (action.payload === favoriteId) {
+                    const index = state.favorites.indexOf(action.payload);
+                    if (index > -1) {
+                        return Object.assign({}, state,
+                            {
+                                favorites: state.favorites.splice(index, 1)
+                            }
+                        )
+                    }
+                }
+                return null;
+            })
             return Object.assign({}, state,
                 {
                     favorites: state.favorites.concat(action.payload)
