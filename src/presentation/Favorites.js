@@ -32,8 +32,7 @@ class Favorites extends Component  {
 
 const mapStateToProps = state => ({
     movies: state.movies,
-    favorites: state.favorites,
-    heart: state.heart
+    favorites: state.favorites
 })
 
 const mapDispatchToProps = dispatch => ({

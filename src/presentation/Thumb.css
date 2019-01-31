@@ -25,3 +25,7 @@
     cursor: pointer;
     display: block;
 }
+
+.thumb i.fas {
+    color: #ee5333;
+}
