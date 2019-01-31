@@ -2,13 +2,12 @@ import {
     FETCH_MOVIES_START,
     FETCH_MOVIES_REJECTED,
     FETCH_MOVIES_FULFILLED,
-    TOGGLE_FAVORITES
+    TOGGLE_FAVORITE
 } from '../actions';
 
 const initialState = {
     loading: false,
     movies: [],
-    posters: [],
     favorites: [],
     error: false
 }
@@ -17,8 +16,8 @@ export const favoritesSelector = state => {
     return state.favorites.map(favorite => {
         return state.movies.find(movie => {
             return movie.ids.trakt === favorite;
-        })
-    })
+        });
+    });
 }
 
 export default (state = initialState, action) => {
@@ -28,40 +27,35 @@ export default (state = initialState, action) => {
                 {
                     loading: true
                 }
-            )
+            );
         case FETCH_MOVIES_REJECTED:
             return Object.assign({}, state,
                 {
                     loading: false,
                     error: action.payload
                 }
-            )
+            );
         case FETCH_MOVIES_FULFILLED:
             return Object.assign({}, state,
                 {
                     loading: false,
                     movies: action.payload
                 }
-            )
-        case TOGGLE_FAVORITES:
-            state.favorites.map(favoriteId => {
-                if (action.payload === favoriteId) {
-                    const index = state.favorites.indexOf(action.payload);
-                    if (index > -1) {
-                        return Object.assign({}, state,
-                            {
-                                favorites: state.favorites.splice(index, 1)
-                            }
-                        )
-                    }
-                }
-                return null;
-            })
+            );
+        case TOGGLE_FAVORITE:
+            let favoriteExists = state.favorites.indexOf(action.payload) > -1;
+            let favorites = state.favorites.slice();
+
+            if (favoriteExists) {
+                favorites = favorites.filter(id => id !== action.payload);
+            } else {
+                favorites.push(action.payload);
+            }
             return Object.assign({}, state,
                 {
-                    favorites: state.favorites.concat(action.payload)
+                    favorites: favorites
                 }
-            )
+            );
         default:
             return state;
     }
