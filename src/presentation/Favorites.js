@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchMovies: () => dispatch(fetchMovies()),
-    toggleFavorites: (id) => toggleFavorites(id)
+    toggleFavorites: (id) => dispatch(toggleFavorites(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
