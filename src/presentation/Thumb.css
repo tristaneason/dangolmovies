@@ -1,0 +1,31 @@
+.thumb {
+    padding: .5rem 2rem 2rem;
+}
+
+.thumb .name {
+    display: inline;
+    font-weight: 600;
+    margin-right: .5rem;
+    text-transform: uppercase;
+}
+
+.thumb .year {
+    display: inline;
+    font-size: .85rem;
+}
+
+.thumb .image {
+    display: block;
+    height: auto;
+    margin: .25rem;
+    width: 100%;
+}
+
+.thumb i {
+    cursor: pointer;
+    display: block;
+}
+
+.thumb i.fas {
+    color: #ee5333;
+}
