@@ -28,7 +28,7 @@ class Home extends Component {
             <div className="row">
                 {this.props.movies.map(item => {
                     const { movie } = item;
-                    return <div key={movie.ids.trakt} className="thumb col-sm-6 col-md-4 col-lg-3">
+                    return <div key={movie.ids.trakt} className="thumb col-md-6 col-lg-4">
                         <span className="name">{movie.title}</span>
                         <span className="year">{movie.year}</span>
                         <Poster id={movie.ids.tmdb} alt={movie.title} className="image" />

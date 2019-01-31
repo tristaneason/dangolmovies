@@ -14,7 +14,7 @@ class Favorites extends Component  {
                     return this.props.movies.map(item => {
                         const { movie } = item;
                         if (movie.ids.trakt === favoriteId) {
-                            return <div key={favoriteId} className="thumb col-sm-6 col-md-4 col-lg-3">
+                            return <div key={favoriteId} className="thumb col-md-6 col-lg-4">
                                 <span className="name">{movie.title}</span>
                                 <span className="year">{movie.year}</span>
                                 <Poster id={movie.ids.tmdb} alt={movie.title} className="image" />
