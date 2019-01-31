@@ -12,14 +12,6 @@ const initialState = {
     error: false
 }
 
-export const favoritesSelector = state => {
-    return state.favorites.map(favorite => {
-        return state.movies.find(movie => {
-            return movie.ids.trakt === favorite;
-        });
-    });
-}
-
 export default (state = initialState, action) => {
     switch (action.type) {
         case FETCH_MOVIES_START:
@@ -51,6 +43,7 @@ export default (state = initialState, action) => {
             } else {
                 favorites.push(action.payload);
             }
+
             return Object.assign({}, state,
                 {
                     favorites: favorites
