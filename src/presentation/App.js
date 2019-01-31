@@ -10,8 +10,8 @@ export default ({ reduxStore }) => (
     <Provider store={reduxStore}>
         <Router>
             <div>
-                <h1 class="text-center">Dang ’ol Movies</h1>
-                <img class="banner" src={banner} alt="banner" />
+                <h1 className="text-center">Dang ’ol Movies</h1>
+                <img className="banner" src={banner} alt="banner" />
                 <main className="app container">
                     <ul className="nav nav-tabs justify-content-center">
                         <li>
