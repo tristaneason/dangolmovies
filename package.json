@@ -29,6 +29,8 @@
     "not op_mini all"
   ],
   "resolutions": {
-    "**/**/lodash": "^4.17.12"
+    "**/**/lodash": "^4.17.12",
+    "**/**/set-value": "^2.0.1",
+    "**/**/serialize-javascript": "^2.1.1"
   }
 }
